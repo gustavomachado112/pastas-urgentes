@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartões - Financia Fácil</title>
+    <link rel="stylesheet" href="cartoes.css">
+</head>
+<body>
+    <div class="pagina-cartoes">
+        <header class="topo-pagina">
+            <div class="logo-pagina">
+                <h1>Financia Fácil</h1>
+            </div>
+            <nav class="menu-pagina">
+                <a href="paginainicial.html" class="item-menu">Início</a>
+                <a href="transacoes.html" class="item-menu">Transações</a>
+                <a href="contas.html" class="item-menu">Contas</a>
+                <a href="cartoes.html" class="item-menu ativo">Cartões</a>
+                <a href="faturas.html" class="item-menu">Faturas</a>
+                <a href="dividas.html" class="item-menu">Dívidas</a>
+            </nav>
+            <div class="info-usuario">
+                <span id="nomeUsuario">Olá, Usuário!</span>
+            </div>
+        </header>
+
+        <main class="conteudo-cartoes">
+            <div class="cabecalho-secao">
+                <h2>Cartões de Crédito</h2>
+                <p>Gerencie seus cartões e acompanhe os limites</p>
+            </div>
+
+            <div class="resumo-geral">
+                <div class="card-resumo">
+                    <h3>Limite Total</h3>
+                    <p class="valor-destaque" id="limiteTotal">R$ 15.000,00</p>
+                </div>
+                
+                <div class="card-resumo">
+                    <h3>Limite Disponível</h3>
+                    <p class="valor-destaque positivo" id="limiteDisponivel">R$ 8.250,00</p>
+                </div>
+                
+                <div class="card-resumo">
+                    <h3>Limite Utilizado</h3>
+                    <p class="valor-destaque" id="limiteUtilizado">R$ 6.750,00</p>
+                </div>
+            </div>
+
+            <div class="controles-pagina">
+                <button class="btn btn-primario" id="btnNovoCartao">
+                    Novo Cartão
+                </button>
+            </div>
+
+            <div class="lista-cartoes">
+                <div class="card-item">
+                    <div class="info-card">
+                        <div class="marca-cartao visa">VISA</div>
+                        <div class="detalhes-card">
+                            <h3>Nubank •••• 1234</h3>
+                            <p>Vencimento: 10 • Fechamento: 25</p>
+                            <div class="info-limite">
+                                <div class="barra-progresso">
+                                    <div class="progresso" style="width: 45%"></div>
+                                </div>
+                                <div class="texto-limite">
+                                    <span>R$ 2.250,00 de R$ 5.000,00</span>
+                                    <span class="texto-status">45% utilizado</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dados-card">
+                        <div class="linha-dado">
+                            <span class="texto-rotulo">Limite Total</span>
+                            <span class="texto-valor">R$ 5.000,00</span>
+                        </div>
+                        <div class="linha-dado">
+                            <span class="texto-rotulo">Disponível</span>
+                            <span class="texto-valor positivo">R$ 2.750,00</span>
+                        </div>
+                    </div>
+                    <div class="acoes-card">
+                        <button class="btn btn-editar">Editar</button>
+                        <button class="btn btn-excluir">Excluir</button>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <div class="info-card">
+                        <div class="marca-cartao mastercard">MASTERCARD</div>
+                        <div class="detalhes-card">
+                            <h3>Itaú •••• 5678</h3>
+                            <p>Vencimento: 15 • Fechamento: 30</p>
+                            <div class="info-limite">
+                                <div class="barra-progresso">
+                                    <div class="progresso" style="width: 75%"></div>
+                                </div>
+                                <div class="texto-limite">
+                                    <span>R$ 3.750,00 de R$ 5.000,00</span>
+                                    <span class="texto-status">75% utilizado</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dados-card">
+                        <div class="linha-dado">
+                            <span class="texto-rotulo">Limite Total</span>
+                            <span class="texto-valor">R$ 5.000,00</span>
+                        </div>
+                        <div class="linha-dado">
+                            <span class="texto-rotulo">Disponível</span>
+                            <span class="texto-valor positivo">R$ 1.250,00</span>
+                        </div>
+                    </div>
+                    <div class="acoes-card">
+                        <button class="btn btn-editar">Editar</button>
+                        <button class="btn btn-excluir">Excluir</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="modal" id="modalCartao">
+            <div class="conteudo-modal">
+                <div class="topo-modal">
+                    <h3>Novo Cartão</h3>
+                    <button class="btn-fechar" id="fecharModal">×</button>
+                </div>
+                <form class="form-modal" id="formCartao">
+                    <div class="campo-form">
+                        <label for="inputNomeCartao" class="texto-label">Nome do Cartão:</label>
+                        <input type="text" id="inputNomeCartao" class="input-campo" required>
+                    </div>
+                    
+                    <div class="campo-form">
+                        <label for="selectBandeira" class="texto-label">Bandeira:</label>
+                        <select id="selectBandeira" class="input-campo" required>
+                            <option value="visa">VISA</option>
+                            <option value="mastercard">Mastercard</option>
+                            <option value="elo">ELO</option>
+                        </select>
+                    </div>
+                    
+                    <div class="campo-form">
+                        <label for="inputLimite" class="texto-label">Limite Total:</label>
+                        <input type="number" id="inputLimite" class="input-campo" step="0.01" required>
+                    </div>
+                    
+                    <div class="campo-form">
+                        <label for="inputVencimento" class="texto-label">Dia de Vencimento:</label>
+                        <input type="number" id="inputVencimento" class="input-campo" min="1" max="31" required>
+                    </div>
+                    
+                    <div class="campo-form">
+                        <label for="inputFechamento" class="texto-label">Dia de Fechamento:</label>
+                        <input type="number" id="inputFechamento" class="input-campo" min="1" max="31" required>
+                    </div>
+                    
+                    <div class="botoes-modal">
+                        <button type="button" class="btn btn-secundario" id="cancelarModal">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-primario">
+                            Adicionar Cartão
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="cartoes.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Financia Fácil</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+    <div class="pagina-cadastro">
+        <div class="card-cadastro">
+            <div class="topo-form">
+                <h1 class="titulo-form">Criar Conta</h1>
+                <p class="texto-apoio">Junte-se ao Financia Fácil</p>
+            </div>
+            
+            <form class="form-cadastro" id="formCadastro">
+                <div class="linha-campo">
+                    <label for="inputNome" class="texto-campo">Nome Completo:</label>
+                    <input type="text" id="inputNome" class="campo-input" required>
+                </div>
+                
+                <div class="linha-campo">
+                    <label for="inputEmailCadastro" class="texto-campo">Email:</label>
+                    <input type="email" id="inputEmailCadastro" class="campo-input" required>
+                </div>
+                
+                <div class="linha-campo">
+                    <label for="inputSenhaCadastro" class="texto-campo">Senha:</label>
+                    <input type="password" id="inputSenhaCadastro" class="campo-input" required>
+                </div>
+                
+                <div class="linha-campo">
+                    <label for="inputConfirmarSenha" class="texto-campo">Confirmar Senha:</label>
+                    <input type="password" id="inputConfirmarSenha" class="campo-input" required>
+                </div>
+                
+                <div class="linha-campo">
+                    <label for="inputTelefone" class="texto-campo">📞 Telefone:</label>
+                    <input type="tel" id="inputTelefone" class="campo-input">
+                </div>
+                
+                <div class="area-termos">
+                    <input type="checkbox" id="checkTermos" required>
+                    <label for="checkTermos" class="texto-termos">
+                    Concordo com os Termos de Uso e Política de Privacidade
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-cadastrar">
+                    Criar Minha Conta
+                </button>
+            </form>
+            
+            <div class="rodape-form">
+                <a href="index.html" class="link-acesso">Voltar para o Login</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+document.getElementById('formCadastro').onsubmit = function(e) {
+    e.preventDefault();
+    
+    const senha = document.getElementById('inputSenhaCadastro').value;
+    const confirmar = document.getElementById('inputConfirmarSenha').value;
+    
+    if (senha !== confirmar) {
+        alert('Senhas não coincidem!');
+        return;
+    }
+    
+    if (senha.length < 6) {
+        alert('Senha deve ter pelo menos 6 caracteres');
+        return;
+    }
+    
+    if (!document.getElementById('checkTermos').checked) {
+        alert('Aceite os termos de uso');
+        return;
+    }
+    
+    alert('Cadastro realizado! Redirecionando...');
+    window.location.href = 'paginainicial.html';
+};
+</script>
+</html>
